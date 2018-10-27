@@ -9,16 +9,33 @@
     <StackPanel Orientation="Horizontal">
         <GroupBox Header="Game grid" Padding="7">
             <WrapPanel Width="126">
-                <TextBox Name="A1" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" Text="Z" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <TextBox Name="A2" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" Text="Z" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <TextBox Name="A3" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" Text="Z" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <TextBox Name="B1" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" Text="Z" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <TextBox Name="B2" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" Text="Z" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <TextBox Name="B3" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" Text="Z" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <TextBox Name="C1" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" Text="Z" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <TextBox Name="C2" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" Text="Z" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <TextBox Name="C3" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" Text="Z" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <Button Name="A1" Click="Button_Click"  Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <Button Name="A2" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <Button Name="A3" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <Button Name="B1" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <Button Name="B2" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <Button Name="B3" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <Button Name="C1" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <Button Name="C2" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <Button Name="C3" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
             </WrapPanel>
+        </GroupBox>
+        <GroupBox Header="Setting" Padding="7">
+            <StackPanel Width="128">
+                <Button Name="ResetButton" Click="ResetButton_Click" Content="Reset" />
+                <GroupBox Header="Mode">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox Name="ClassicMode" VerticalAlignment="Center" HorizontalAlignment="Right" Checked="ClassicMode_Checked" IsChecked="True" />
+                            <Label Content="Classic" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox Name="ModernMode" VerticalAlignment="Center" HorizontalAlignment="Right" Checked="ModernMode_Checked" />
+                            <Label Content="Modern" />
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
         </GroupBox>
     </StackPanel>
 </Window>

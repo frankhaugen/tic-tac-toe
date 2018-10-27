@@ -24,5 +24,25 @@ namespace tic_tac_toe
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ClassicMode_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ModernMode_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
