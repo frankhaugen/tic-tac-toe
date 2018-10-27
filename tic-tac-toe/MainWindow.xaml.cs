@@ -27,7 +27,9 @@ namespace tic_tac_toe
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            Button input = sender as Button;
+
+            input.Content = "X";
         }
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)

@@ -10,14 +10,14 @@
         <GroupBox Header="Game grid" Padding="7">
             <WrapPanel Width="126">
                 <Button Name="A1" Click="Button_Click"  Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <Button Name="A2" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <Button Name="A3" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <Button Name="B1" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <Button Name="B2" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <Button Name="B3" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <Button Name="C1" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <Button Name="C2" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <Button Name="C3" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <Button Name="A2" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <Button Name="A3" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <Button Name="B1" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <Button Name="B2" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <Button Name="B3" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <Button Name="C1" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <Button Name="C2" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <Button Name="C3" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
             </WrapPanel>
         </GroupBox>
         <GroupBox Header="Setting" Padding="7">
