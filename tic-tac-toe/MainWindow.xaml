@@ -7,9 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" SizeToContent="WidthAndHeight">
     <StackPanel Orientation="Horizontal">
-        <GroupBox Header="Game grid">
-            <WrapPanel>
-                <TextBox Name="A1" FontSize="18" FontWeight="Bold" Width="32" Height="32" Text="Z" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+        <GroupBox Header="Game grid" Padding="7">
+            <WrapPanel Width="126">
+                <TextBox Name="A1" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" Text="Z" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <TextBox Name="A2" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" Text="Z" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <TextBox Name="A3" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" Text="Z" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <TextBox Name="B1" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" Text="Z" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <TextBox Name="B2" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" Text="Z" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <TextBox Name="B3" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" Text="Z" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <TextBox Name="C1" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" Text="Z" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <TextBox Name="C2" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" Text="Z" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <TextBox Name="C3" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" Text="Z" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
             </WrapPanel>
         </GroupBox>
     </StackPanel>
