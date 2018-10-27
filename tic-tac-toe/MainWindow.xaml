@@ -5,25 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:tic_tac_toe"
         mc:Ignorable="d"
-        Title="MainWindow" SizeToContent="WidthAndHeight">
+        Title="MainWindow" SizeToContent="WidthAndHeight"
+        
+        >
     <StackPanel Orientation="Horizontal">
         <GroupBox Header="Game grid" Padding="7">
             <WrapPanel Width="126">
-                <Button Name="A1" Click="Button_Click"  Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <Button Name="A2" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <Button Name="A3" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <Button Name="B1" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <Button Name="B2" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <Button Name="B3" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <Button Name="C1" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <Button Name="C2" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
-                <Button Name="C3" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" />
+                <Button Name="A1" Click="Button_Click"  Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" Content=" " />
+                <Button Name="A2" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" Content=" " />
+                <Button Name="A3" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" Content=" " />
+                <Button Name="B1" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" Content=" " />
+                <Button Name="B2" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" Content=" " />
+                <Button Name="B3" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" Content=" " />
+                <Button Name="C1" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" Content=" " />
+                <Button Name="C2" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" Content=" " />
+                <Button Name="C3" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" Content=" " />
             </WrapPanel>
         </GroupBox>
-        <GroupBox Header="Setting" Padding="7">
+        <GroupBox Header="Settings" Padding="7">
             <StackPanel Width="128">
                 <Button Name="ResetButton" Click="ResetButton_Click" Content="Reset" />
-                <GroupBox Header="Mode">
+                <GroupBox Header="Mode" IsEnabled="False">
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <CheckBox Name="ClassicMode" VerticalAlignment="Center" HorizontalAlignment="Right" Checked="ClassicMode_Checked" IsChecked="True" />
@@ -34,6 +36,9 @@
                             <Label Content="Modern" />
                         </StackPanel>
                     </StackPanel>
+                </GroupBox>
+                <GroupBox Header="First move">
+                    <Label Name="FirstMove" />
                 </GroupBox>
             </StackPanel>
         </GroupBox>
