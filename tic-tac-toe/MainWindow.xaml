@@ -10,7 +10,7 @@
         >
     <StackPanel Orientation="Horizontal">
         <GroupBox Header="Game grid" Padding="7">
-            <WrapPanel Width="126" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <WrapPanel Width="126" HorizontalAlignment="Center" VerticalAlignment="Center" Name="GameGridPanel">
                 <Button Name="A1" Click="Button_Click"  Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" Content=" " />
                 <Button Name="A2" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" Content=" " />
                 <Button Name="A3" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" Content=" " />
@@ -40,6 +40,11 @@
                 <GroupBox Header="First move">
                     <Label Name="FirstMove" Content=" " HorizontalContentAlignment="Center" />
                 </GroupBox>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Debug">
+            <StackPanel>
+                <Button Content="DisplayGrid" Name="DebugDisplayGrid" Click="DebugDisplayGrid_Click" />
             </StackPanel>
         </GroupBox>
     </StackPanel>

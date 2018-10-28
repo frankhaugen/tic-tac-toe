@@ -1,31 +1,17 @@
 ﻿using System;
-using System.Collections.ObjectModel;
+using System.Collections;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace tic_tac_toe
 {
-	public class Row
-	{
-		public Button Cell1 { get; set; }
-		public Button Cell2 { get; set; }
-		public Button Cell3 { get; set; }
-	}
-
-
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		public ObservableCollection<Row> rows = new ObservableCollection<Row>();
 		public bool Playing = true;
-
-		//public IDictionary<string, Button> Buttons = new Dictionary<string, Button>();
-
-		public Button[] buttons;
-		//public Button[] buttonsAvailable;
-		//public Button[] buttons;
+		
 
 		public string Player = "X";
 		public string Computer = "O";
@@ -34,12 +20,24 @@ namespace tic_tac_toe
 		{
 			InitializeComponent();
 
-			FillRows();
-
-			Button[] buttonsTemp = { A1, A2, A3, B1, B2, B3, C1, C2, C3 };
-			buttons = buttonsTemp;
-
+			PopulateGameGrid();
 			ChooseFirstPlayer();
+
+		}
+
+		public void PopulateGameGrid()
+		{
+			Queue queue = new Queue(GameGridPanel.Children);
+
+			for (int i = 0; i < 3; i++)
+			{
+				for (int j = 0; j < 3; j++)
+				{
+					GameGrid.Grid[j, i] = queue.Dequeue() as Button;
+				}
+			}
+
+
 		}
 
 		private void ChooseFirstPlayer()
@@ -57,28 +55,11 @@ namespace tic_tac_toe
 			}
 		}
 
-
-		public void FillRows()
+		private bool CompareThree(Button btn1, Button btn2, Button btn3)
 		{
-			rows.Add(new Row() { Cell1 = A1, Cell2 = A2, Cell3 = A3 });
-			rows.Add(new Row() { Cell1 = B1, Cell2 = B2, Cell3 = B3 });
-			rows.Add(new Row() { Cell1 = C1, Cell2 = C2, Cell3 = C3 });
-
-			rows.Add(new Row() { Cell1 = A1, Cell2 = B1, Cell3 = C1 });
-			rows.Add(new Row() { Cell1 = A2, Cell2 = B2, Cell3 = C2 });
-			rows.Add(new Row() { Cell1 = A3, Cell2 = B3, Cell3 = C3 });
-
-			rows.Add(new Row() { Cell1 = A1, Cell2 = B2, Cell3 = C3 });
-			rows.Add(new Row() { Cell1 = C1, Cell2 = B2, Cell3 = A3 });
-		}
-
-
-
-		private bool CheckGrid(string input)
-		{
-			foreach (Row row in rows)
+			if (btn1.Content.ToString() == Player || btn1.Content.ToString() == Computer)
 			{
-				if (IsSame(input, row.Cell1.Content.ToString(), row.Cell2.Content.ToString(), row.Cell3.Content.ToString()))
+				if (btn2.Content == btn1.Content && btn3.Content == btn2.Content)
 				{
 					return true;
 				}
@@ -86,9 +67,37 @@ namespace tic_tac_toe
 			return false;
 		}
 
-		private bool IsSame(string input, string val1, string val2, string val3)
+		private bool CheckGrid(string input)
 		{
-			if (val1 == input && val2 == input && val3 == input)
+			if (CompareThree(GameGrid.Grid[0, 0], GameGrid.Grid[0, 1], GameGrid.Grid[0, 2]))
+			{
+				return true;
+			}
+			else if (CompareThree(GameGrid.Grid[1, 0], GameGrid.Grid[1, 1], GameGrid.Grid[1, 2]))
+			{
+				return true;
+			}
+			else if (CompareThree(GameGrid.Grid[2, 0], GameGrid.Grid[2, 1], GameGrid.Grid[2, 2]))
+			{
+				return true;
+			}
+			else if (CompareThree(GameGrid.Grid[0, 0], GameGrid.Grid[1, 0], GameGrid.Grid[2, 0]))
+			{
+				return true;
+			}
+			else if (CompareThree(GameGrid.Grid[1, 0], GameGrid.Grid[1, 1], GameGrid.Grid[1, 2]))
+			{
+				return true;
+			}
+			else if (CompareThree(GameGrid.Grid[2, 0], GameGrid.Grid[2, 1], GameGrid.Grid[2, 2]))
+			{
+				return true;
+			}
+			else if (CompareThree(GameGrid.Grid[0, 0], GameGrid.Grid[1, 1], GameGrid.Grid[2, 2]))
+			{
+				return true;
+			}
+			else if (CompareThree(GameGrid.Grid[2, 0], GameGrid.Grid[1, 1], GameGrid.Grid[0, 2]))
 			{
 				return true;
 			}
@@ -97,6 +106,7 @@ namespace tic_tac_toe
 				return false;
 			}
 		}
+		
 
 		private void PlayerMoves(Button input)
 		{
@@ -128,27 +138,27 @@ namespace tic_tac_toe
 
 		private void ResetButton_Click(object sender, RoutedEventArgs e)
 		{
-			foreach (Row row in rows)
+			for (int i = 0; i < 3; i++)
 			{
-				row.Cell1.IsEnabled = true;
-				row.Cell2.IsEnabled = true;
-				row.Cell3.IsEnabled = true;
-
-				row.Cell1.Content = " ";
-				row.Cell2.Content = " ";
-				row.Cell3.Content = " ";
+				for (int j = 0; j < 3; j++)
+				{
+					GameGrid.Grid[j, i].IsEnabled = true;
+					GameGrid.Grid[j, i].Content = " ";
+				}
 			}
-
 			Playing = true;
-
+			PopulateGameGrid();
 			ChooseFirstPlayer();
 		}
 
 		private void DisableGrid()
 		{
-			foreach (Button button in buttons)
+			for (int i = 0; i < 3; i++)
 			{
-				button.IsEnabled = false;
+				for (int j = 0; j < 3; j++)
+				{
+					GameGrid.Grid[j, i].IsEnabled = false;
+				}
 			}
 		}
 
@@ -160,12 +170,13 @@ namespace tic_tac_toe
 				{
 					Random randomSeed = new Random();
 					Random random = new Random(randomSeed.Next());
-					int indexnumber = random.Next(0, 9);
+					int rownumber = random.Next(0, 3);
+					int columnnumber = random.Next(0, 3);
 
-					if (buttons[indexnumber].Content.ToString() == " ")
+					if (GameGrid.Grid[columnnumber, rownumber].Content.ToString() == " ")
 					{
-						buttons[indexnumber].Content = "O";
-						buttons[indexnumber].IsEnabled = false;
+						GameGrid.Grid[columnnumber, rownumber].Content = "O";
+						GameGrid.Grid[columnnumber, rownumber].IsEnabled = false;
 						if (CheckGrid(Computer))
 						{
 							MessageBox.Show("Computer wins!");
@@ -177,7 +188,7 @@ namespace tic_tac_toe
 				}
 			}
 		}
-			
+
 		private void ClassicMode_Checked(object sender, RoutedEventArgs e)
 		{
 
@@ -186,6 +197,22 @@ namespace tic_tac_toe
 		private void ModernMode_Checked(object sender, RoutedEventArgs e)
 		{
 
+		}
+
+		private void DebugDisplayGrid_Click(object sender, RoutedEventArgs e)
+		{
+			string output = "";
+
+			for (int i = 0; i < 3; i++)
+			{
+				for (int j = 0; j < 3; j++)
+				{
+					output = output + GameGrid.Grid[j, i].Content + "\t";
+				}
+				output = output + "\n";
+			}
+
+			MessageBox.Show(output + "\n" + "\n" + GameGrid.Grid[1, 1].Name);
 		}
 	}
 }
