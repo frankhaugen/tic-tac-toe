@@ -73,11 +73,11 @@ namespace tic_tac_toe
 			{
 				return true;
 			}
-			else if (CompareThree(GameGrid.Grid[1, 0], GameGrid.Grid[1, 1], GameGrid.Grid[1, 2]))
+			else if (CompareThree(GameGrid.Grid[0, 1], GameGrid.Grid[1, 1], GameGrid.Grid[2, 1]))
 			{
 				return true;
 			}
-			else if (CompareThree(GameGrid.Grid[2, 0], GameGrid.Grid[2, 1], GameGrid.Grid[2, 2]))
+			else if (CompareThree(GameGrid.Grid[0, 2], GameGrid.Grid[1, 2], GameGrid.Grid[2, 2]))
 			{
 				return true;
 			}
