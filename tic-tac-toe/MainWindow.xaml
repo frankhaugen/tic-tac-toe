@@ -22,30 +22,25 @@
                 <Button Name="C3" Click="Button_Click" Margin="5" FontSize="18" FontWeight="Bold" Width="32" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" BorderThickness="3" Content=" " />
             </WrapPanel>
         </GroupBox>
-        <GroupBox Header="Settings" Padding="7">
-            <StackPanel Width="128">
-                <Button Name="ResetButton" Click="ResetButton_Click" Content="Reset" />
-                <GroupBox Header="Mode" IsEnabled="False">
-                    <StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <CheckBox Name="ClassicMode" VerticalAlignment="Center" HorizontalAlignment="Right" Checked="ClassicMode_Checked" IsChecked="True" />
-                            <Label Content="Classic" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <CheckBox Name="ModernMode" VerticalAlignment="Center" HorizontalAlignment="Right" Checked="ModernMode_Checked" />
-                            <Label Content="Modern" />
-                        </StackPanel>
-                    </StackPanel>
-                </GroupBox>
-                <GroupBox Header="First move">
-                    <Label Name="FirstMove" Content=" " HorizontalContentAlignment="Center" />
-                </GroupBox>
-            </StackPanel>
-        </GroupBox>
-        <GroupBox Header="Debug">
-            <StackPanel>
-                <Button Content="DisplayGrid" Name="DebugDisplayGrid" Click="DebugDisplayGrid_Click" />
-            </StackPanel>
-        </GroupBox>
-    </StackPanel>
+		<GroupBox Header="Settings" Padding="7">
+			<StackPanel Width="128">
+				<Button Name="ResetButton" Click="ResetButton_Click" Content="Reset" />
+				<GroupBox Header="Mode" IsEnabled="False">
+					<StackPanel>
+						<StackPanel Orientation="Horizontal">
+							<CheckBox Name="ClassicMode" VerticalAlignment="Center" HorizontalAlignment="Right" Checked="ClassicMode_Checked" IsChecked="True" />
+							<Label Content="Classic" />
+						</StackPanel>
+						<StackPanel Orientation="Horizontal">
+							<CheckBox Name="ModernMode" VerticalAlignment="Center" HorizontalAlignment="Right" Checked="ModernMode_Checked" />
+							<Label Content="Modern" />
+						</StackPanel>
+					</StackPanel>
+				</GroupBox>
+				<GroupBox Header="First move">
+					<Label Name="FirstMove" Content=" " HorizontalContentAlignment="Center" />
+				</GroupBox>
+			</StackPanel>
+		</GroupBox>
+	</StackPanel>
 </Window>

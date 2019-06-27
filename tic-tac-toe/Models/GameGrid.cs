@@ -7,8 +7,8 @@ using System.Windows.Controls;
 
 namespace tic_tac_toe
 {
-	public static class GameGrid
+	public class GameGrid
 	{
-		public static Button[,] Grid = { { null, null, null }, { null, null, null }, { null, null, null } };
+		public Button[,] Grid = { { null, null, null }, { null, null, null }, { null, null, null } };
 	}
 }

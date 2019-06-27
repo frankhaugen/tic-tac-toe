@@ -11,7 +11,8 @@ namespace tic_tac_toe
 	public partial class MainWindow : Window
 	{
 		public bool Playing = true;
-		
+        private readonly GameGrid _gameGrid;
+        private readonly Referee _referee;
 
 		public string Player = "X";
 		public string Computer = "O";
@@ -19,11 +20,17 @@ namespace tic_tac_toe
 		public MainWindow()
 		{
 			InitializeComponent();
-
+            _gameGrid = new GameGrid();
+            _referee = new Referee();
 			PopulateGameGrid();
 			ChooseFirstPlayer();
 
 		}
+
+        private void Move()
+        {
+            
+        }
 
 		public void PopulateGameGrid()
 		{
@@ -33,11 +40,9 @@ namespace tic_tac_toe
 			{
 				for (int j = 0; j < 3; j++)
 				{
-					GameGrid.Grid[j, i] = queue.Dequeue() as Button;
+					_gameGrid.Grid[j, i] = queue.Dequeue() as Button;
 				}
 			}
-
-
 		}
 
 		private void ChooseFirstPlayer()
@@ -54,60 +59,7 @@ namespace tic_tac_toe
 
 			}
 		}
-
-		private bool CompareThree(Button btn1, Button btn2, Button btn3)
-		{
-			if (btn1.Content.ToString() == Player || btn1.Content.ToString() == Computer)
-			{
-				if (btn2.Content == btn1.Content && btn3.Content == btn2.Content)
-				{
-					return true;
-				}
-			}
-			return false;
-		}
-
-		private bool CheckGrid(string input)
-		{
-			if (CompareThree(GameGrid.Grid[0, 0], GameGrid.Grid[0, 1], GameGrid.Grid[0, 2]))
-			{
-				return true;
-			}
-			else if (CompareThree(GameGrid.Grid[0, 1], GameGrid.Grid[1, 1], GameGrid.Grid[2, 1]))
-			{
-				return true;
-			}
-			else if (CompareThree(GameGrid.Grid[0, 2], GameGrid.Grid[1, 2], GameGrid.Grid[2, 2]))
-			{
-				return true;
-			}
-			else if (CompareThree(GameGrid.Grid[0, 0], GameGrid.Grid[1, 0], GameGrid.Grid[2, 0]))
-			{
-				return true;
-			}
-			else if (CompareThree(GameGrid.Grid[1, 0], GameGrid.Grid[1, 1], GameGrid.Grid[1, 2]))
-			{
-				return true;
-			}
-			else if (CompareThree(GameGrid.Grid[2, 0], GameGrid.Grid[2, 1], GameGrid.Grid[2, 2]))
-			{
-				return true;
-			}
-			else if (CompareThree(GameGrid.Grid[0, 0], GameGrid.Grid[1, 1], GameGrid.Grid[2, 2]))
-			{
-				return true;
-			}
-			else if (CompareThree(GameGrid.Grid[2, 0], GameGrid.Grid[1, 1], GameGrid.Grid[0, 2]))
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		
-
+        
 		private void PlayerMoves(Button input)
 		{
 			if (Playing)
@@ -116,7 +68,7 @@ namespace tic_tac_toe
 				input.IsEnabled = false;
 			}
 
-			if (CheckGrid(Player))
+			if (_referee.CheckGrid(_gameGrid, Player, Computer))
 			{
 				MessageBox.Show("Player wins!");
 				Playing = false;
@@ -142,8 +94,8 @@ namespace tic_tac_toe
 			{
 				for (int j = 0; j < 3; j++)
 				{
-					GameGrid.Grid[j, i].IsEnabled = true;
-					GameGrid.Grid[j, i].Content = " ";
+					_gameGrid.Grid[j, i].IsEnabled = true;
+					_gameGrid.Grid[j, i].Content = " ";
 				}
 			}
 			Playing = true;
@@ -157,7 +109,7 @@ namespace tic_tac_toe
 			{
 				for (int j = 0; j < 3; j++)
 				{
-					GameGrid.Grid[j, i].IsEnabled = false;
+					_gameGrid.Grid[j, i].IsEnabled = false;
 				}
 			}
 		}
@@ -166,26 +118,7 @@ namespace tic_tac_toe
 		{
 			if (Playing)
 			{
-				while (true)
-				{
-					Random randomSeed = new Random();
-					Random random = new Random(randomSeed.Next());
-					int rownumber = random.Next(0, 3);
-					int columnnumber = random.Next(0, 3);
-
-					if (GameGrid.Grid[columnnumber, rownumber].Content.ToString() == " ")
-					{
-						GameGrid.Grid[columnnumber, rownumber].Content = "O";
-						GameGrid.Grid[columnnumber, rownumber].IsEnabled = false;
-						if (CheckGrid(Computer))
-						{
-							MessageBox.Show("Computer wins!");
-							Playing = false;
-							DisableGrid();
-						}
-						break;
-					}
-				}
+				
 			}
 		}
 
@@ -197,22 +130,6 @@ namespace tic_tac_toe
 		private void ModernMode_Checked(object sender, RoutedEventArgs e)
 		{
 
-		}
-
-		private void DebugDisplayGrid_Click(object sender, RoutedEventArgs e)
-		{
-			string output = "";
-
-			for (int i = 0; i < 3; i++)
-			{
-				for (int j = 0; j < 3; j++)
-				{
-					output = output + GameGrid.Grid[j, i].Content + "\t";
-				}
-				output = output + "\n";
-			}
-
-			MessageBox.Show(output + "\n" + "\n" + GameGrid.Grid[1, 1].Name);
 		}
 	}
 }
